@@ -1,18 +1,14 @@
 import io.appium.java_client.AppiumBy
-import io.appium.java_client.MobileElement
 import io.appium.java_client.android.AndroidDriver
 import io.appium.java_client.remote.MobileCapabilityType
-import org.junit.After
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.*
 import org.openqa.selenium.remote.DesiredCapabilities
 import java.net.URL
 
 class AppiumTest {
 
-    private lateinit var driver: AndroidDriver<MobileElement>
-
-    @Before
+    private lateinit var driver: AndroidDriver
+    @BeforeEach
     fun setUp() {
         /* Configuração de DesiredCapabilities
 
@@ -56,7 +52,7 @@ class AppiumTest {
         assert(result.text == "5") { "O resultado esperado era 5, mas foi ${result.text}" }
     }
 
-    @After
+    @AfterEach
     fun tearDown() {
         driver.quit()
     }
